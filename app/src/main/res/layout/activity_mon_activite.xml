@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.test.shamzic.applitp1.MonActivite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+    <TableRow
+        android:id="@+id/tableRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dip" >
+
+
+        <TextView
+            android:id="@+id/textView1"
+            android:text="Nom prénom : " />
+
+        <EditText
+            android:id="@+id/textEdit1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="15dip"
+            android:text="Jean Dujardin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dip" >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:text="Entrez votre âge : " />
+
+        <EditText
+            android:id="@+id/textEdit2"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="15dip"
+            android:text="jj/mm/aaaa"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dip" >
+
+        <TextView
+            android:id="@+id/textView3"
+            android:text="Domaine de compétences : " />
+
+        <EditText
+            android:id="@+id/textEdit3"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="15dip"
+            android:text=" "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="15dip" >
+
+        <TextView
+            android:id="@+id/textView4"
+            android:text="Numéro de tél :" />
+
+        <EditText
+            android:id="@+id/textEdit4"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="15dip"
+            android:text=" "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </TableRow>
+
+        <Button
+            android:id="@+id/bouton1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
