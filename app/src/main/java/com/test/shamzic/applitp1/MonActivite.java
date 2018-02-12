@@ -23,10 +23,10 @@ public class MonActivite extends AppCompatActivity {
 
 
         button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                TextView textv =(TextView)findViewById(R.id.textView5);
-                textv.setText("Salut");
-                // Code here executes on main thread after user presses button
+           public void onClick(View v) {
+                TextView textv = findViewById(R.id.textView5);
+                textv.setText("Salut Quentin");
+                 //Code here executes on main thread after user presses button
             }
         });
     }
