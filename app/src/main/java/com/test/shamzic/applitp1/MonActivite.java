@@ -25,7 +25,7 @@ public class MonActivite extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
            public void onClick(View v) {
                 TextView textv = findViewById(R.id.textView5);
-                textv.setText("Salut Quentin");
+                textv.setText("Salut Quentin tu vas bien mon choux");
                  //Code here executes on main thread after user presses button
             }
         });
