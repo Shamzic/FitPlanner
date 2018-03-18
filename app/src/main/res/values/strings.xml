@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">AppliTP1</string>
+    <string name="app_name">FitPlanner</string>
+    <string name="hello">Hello World, checkBoxListVue!</string>
+    <string name="exercice">Exercice : </string>
+    <string name="jour1"> Lundi </string>
+    <string name="jour2"> Mardi </string>
+    <string name="jour3"> Mercredi </string>
+    <string name="jour4"> Jeudi </string>
+    <string name="jour5"> Vendredi </string>
+    <string name="jour6"> Samedi </string>
+    <string name="jour7"> Dimanche </string>
+    <string name="VALIDATION"> Validez </string>
+    <string name="A">\@string/jour1</string>
+    <string name="strings.xml">\@string/jour2</string>
 </resources>
