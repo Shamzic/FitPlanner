@@ -1,26 +1,35 @@
 package com.test.shamzic.applitp1;
 
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.RadioGroup;
+import android.os.Bundle;
 import android.widget.TextView;
-import android.view.MotionEvent;
-import android.widget.Toast;
+import android.widget.Button;
+
+import android.view.View;
+
+import org.w3c.dom.Text;
 
 public class MonActivite extends AppCompatActivity {
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        TextView tv = new TextView(this);
+        //tv.setText("Hello, Android");
+        //setContentView(tv);
         setContentView(R.layout.activity_mon_activite);
+
+        final Button button = findViewById(R.id.bouton1);
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+           public void onClick(View v) {
+                TextView textv = findViewById(R.id.textView5);
+                textv.setText("Salut Quentin");
+                 //Code here executes on main thread after user presses button
+            }
+        });
     }
+
+
 }
