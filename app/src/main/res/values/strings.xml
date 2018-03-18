@@ -1,15 +1,14 @@
 <resources>
-    <string name="app_name">FitPlanner</string>
-    <string name="hello">Hello World, checkBoxListVue!</string>
-    <string name="exercice">Exercice : </string>
-    <string name="jour1"> Lundi </string>
-    <string name="jour2"> Mardi </string>
-    <string name="jour3"> Mercredi </string>
-    <string name="jour4"> Jeudi </string>
-    <string name="jour5"> Vendredi </string>
-    <string name="jour6"> Samedi </string>
-    <string name="jour7"> Dimanche </string>
-    <string name="VALIDATION"> Validez </string>
-    <string name="A">\@string/jour1</string>
-    <string name="strings.xml">\@string/jour2</string>
+    <string name="app_name">Fitplanner</string>
+    <string name="hello_world">hey family</string>
+    <string name="weight1">Weight :</string>
+    <string name="weight2">Weight</string>
+    <string name="Size1">Size :</string>
+    <string name="Size2">Size</string>
+    <string name="Size3">Meters </string>
+    <string name="Size4">Centimeters </string>
+    <string name="function">Mega function ! </string>
+    <string name="imc">IMC Computing</string>
+    <string name="raz">RAZ</string>
+    <string name="result">Result :\nYou need to click on the computing button in order to get the result.</string>
 </resources>
