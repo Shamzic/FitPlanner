@@ -15,21 +15,6 @@ public class MonActivite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TextView tv = new TextView(this);
-        //tv.setText("Hello, Android");
-        //setContentView(tv);
         setContentView(R.layout.activity_mon_activite);
-
-        final Button button = findViewById(R.id.bouton1);
-
-
-        button.setOnClickListener(new View.OnClickListener() {
-           public void onClick(View v) {
-                TextView textv = findViewById(R.id.textView5);
-                textv.setText("Salut Quentin");
-                 //Code here executes on main thread after user presses button
-            }
-        });
     }
-
-
 }
