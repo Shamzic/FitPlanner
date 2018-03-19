@@ -10,5 +10,22 @@
     <string name="function">Mega function ! </string>
     <string name="imc">IMC Computing</string>
     <string name="raz">RAZ</string>
+    <string name="descrLogo">Logo Fitplanner</string>
     <string name="result">Result :\nYou need to click on the computing button in order to get the result.</string>
+    <string name="user">User email</string>
+    <string name="errorMailPass">Please enter your email and your password correctly</string>
+    <string name="userLogin">User Login</string>
+    <string name="userRegistration">User Registration</string>
+    <string name="connexion">Connexion</string>
+    <string name="signin">Sign In</string>
+    <string name="signup">Sign Up</string>
+    <string name="notAlreadyRegistered">Not have an account ? Singup here...</string>
+    <string name="logout">Logout</string>
+    <string name="welcome">Welcome </string>
+    <string name="progressRegistration">Registration user... </string>
+    <string name="askEmail">Please enter your email</string>
+    <string name="askPass">Please enter your password</string>
+    <string name="failRegister">Fail register</string>
+    <string name="successRegister">Register done !</string>
+
 </resources>

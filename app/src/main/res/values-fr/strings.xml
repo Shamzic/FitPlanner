@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fitplanner</string>
+    <string name="raz">RAZ</string>
+    <string name="descrLogo">Logo Fitplanner</string>
+    <string name="hello_world">bijour la famille</string>
+    <string name="weight1">Poids :</string>
+    <string name="weight2">Poids</string>
+    <string name="Size1">Taille :</string>
+    <string name="Size2">Taille</string>
+    <string name="Size3">Mètres </string>
+    <string name="Size4">Centimètres </string>
+    <string name="function">Mega fonction ! </string>
+    <string name="imc">Calculer l\'IMC</string>
+    <string name="result">Résultat :\nVous devez cliquer sur le bouton \"Calculer l\'IMC\" pour obtenir le résultat.</string>
+    <string name="user">Email utilisateur</string>E
+    <string name="errorMailPass">Entrez un email et un mot de passe valides svp</string>
+    <string name="userLogin">Se connecter</string>
+    <string name="connexion">Connexion</string>
+    <string name="signin">Se connecter</string>
+    <string name="signup">s\'inscrire</string>
+    <string name="notAlreadyRegistered">Pas encore de compte ? S\'inscrire ici...</string>
+    <string name="userRegistration">S\'inscrire</string>
+    <string name="logout">Déconnexion</string>
+    <string name="welcome">Bienvenue</string>
+    <string name="progressRegistration">Connexion en cours</string>
+    <string name="askEmail">Entrez votre email svp</string>
+    <string name="askPass">Entrez votre mot de passe svp</string>
+    <string name="failRegister">Echec de l\'inscription</string>
+    <string name="successRegister">Inscription effectuée avec succès</string>
+</resources>
