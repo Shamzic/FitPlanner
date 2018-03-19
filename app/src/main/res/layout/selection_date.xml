@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:text="@string/exercice"
+        android:id="@+id/date1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="32px"
+        android:textStyle="bold"
+        />
+
+    <CheckBox
+        android:text="@string/jour1"
+        android:id="@+id/check_lundi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10sp"
+        android:onClick="onCheckboxClicked" />
+
+    <CheckBox
+        android:text="@string/jour2"
+        android:id="@+id/check_mardi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10sp"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:text="@string/jour3"
+        android:id="@+id/check_mercredi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10sp"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:text="@string/jour4"
+        android:id="@+id/check_jeudi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10sp"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:text="@string/jour5"
+        android:id="@+id/check_vendredi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10sp"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:text="@string/jour6"
+        android:id="@+id/check_samedi"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10sp"
+        android:onClick="onCheckboxClicked"/>
+
+    <CheckBox
+        android:text="@string/jour7"
+        android:id="@+id/check_dimanche"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginRight="10sp"
+        android:onClick="onCheckboxClicked"/>
+
+    <Button
+        android:text="@string/VALIDATION"
+        android:id="@+id/validation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="onButtonClicked"
+        />
+
+
+</LinearLayout>
