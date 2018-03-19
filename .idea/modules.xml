@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/FitPlanner.iml" filepath="$PROJECT_DIR$/FitPlanner.iml" />
       <module fileurl="file://C:\Users\shame\Documents\tp_m1\Mobile\TP1\.idea\FitPlanner.iml" filepath="C:\Users\shame\Documents\tp_m1\Mobile\TP1\.idea\FitPlanner.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TP1.iml" filepath="$PROJECT_DIR$/TP1.iml" />
+      <module fileurl="file://C:\Users\famille\AndroidStudioProjects\FitPlanner\TP1.iml" filepath="C:\Users\famille\AndroidStudioProjects\FitPlanner\TP1.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

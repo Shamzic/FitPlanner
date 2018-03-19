@@ -21,12 +21,9 @@ import java.util.Map;
 
 import static android.text.TextUtils.indexOf;
 
-public class SelectionExercice extends MonActivite/*ListActivity*/ {
+public class SelectionExercice extends MonActivite{
 
-    //final String PLANNING = "Dates Choisies" ;
     private ListView mListView;
-    //protected ListView L1, L2, L3, L4, L5, L6, L7;
-    //protected int[] Jour = new int[] {0,0,0,0,0,0,0};
     protected String[] Jour = new String[] {"","","","","","","",""};
 
 
@@ -64,44 +61,50 @@ public class SelectionExercice extends MonActivite/*ListActivity*/ {
         if (checkBox1.isChecked()) {
             Jour[1] = getString(R.string.jour1)+" ";
         }
+        else{
+            Jour[1] = "";
+        }
 
         if (checkBox2.isChecked()){
             Jour[2] = getString(R.string.jour2)+" ";
         }
+        else{
+            Jour[2] = "";
+        }
         if (checkBox3.isChecked()) {
             Jour[3] = getString(R.string.jour3)+" ";
+        }
+        else{
+            Jour[3] = "";
         }
         if (checkBox4.isChecked()){
             Jour[4] = getString(R.string.jour4)+" ";
         }
+        else{
+            Jour[4] = "";
+        }
         if (checkBox5.isChecked()) {
             Jour[5] = getString(R.string.jour5)+" ";
+        }
+        else{
+            Jour[5] = "";
         }
         if (checkBox6.isChecked()){
             Jour[6] = getString(R.string.jour6)+" ";
         }
+        else{
+            Jour[6] = "";
+        }
         if (checkBox7.isChecked()){
             Jour[7] = getString(R.string.jour7);
         }
-
+        else{
+            Jour[7] = "";
+        }
 
     }
 
-    /*SimpleAdapter mSchedule = new SimpleAdapter(this.getBaseContext(), listItem, R.layout.descriptions_exercices,
-            new String[]{"nom", "description"}, new int[]{R.id.nom, R.id.description});
-
-    mListView.setAdapter(mSchedule);
-
-    mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        public void onItemClick(AdapterView<?> a, View v, int position, long id) {;
-            Intent intent = new Intent(SelectionExercice.this, MonActivite.class);
-            startActivity(intent);
-        }
-
-
-
-    });*/
-    public void onButtonClicked (/*AdapterView < ? > a,*/ View v/*,int position, long id*/) {
+    public void onButtonClicked (View v) {
         Intent I2 = new Intent(SelectionExercice.this, MonActivite.class);
         I2.putExtra("PLANNING", Jour);
         startActivity(I2);
