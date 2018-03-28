@@ -96,7 +96,6 @@ public class MonActivite extends AppCompatActivity implements View.OnClickListen
 
         if(view == textViewSignin) {
             // will open activity
-            //Toast.makeText(MonActivite.this, "lets get los !",Toast.LENGTH_LONG).show();
         /*  finish();*/
             startActivity(new Intent(this, LoginActivity.class));
         }

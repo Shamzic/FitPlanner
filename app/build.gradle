@@ -32,6 +32,7 @@ dependencies {
     // Required only if Twitter login support is required
     compile("com.twitter.sdk.android:twitter-core:3.0.0@aar") { transitive = true }
     compile 'com.google.firebase:firebase-auth:11.8.0'
+    compile 'com.google.firebase:firebase-firestore:11.8.0'
 }
 
 

@@ -1,32 +1,16 @@
 package com.test.shamzic.applitp1;
-
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import static android.text.TextUtils.indexOf;
-
-public class SelectionExercice extends MonActivite{
+public class SelectionExercice extends Accueil{
 
     private ListView mListView;
     protected String[] Jour = new String[] {"","","","","","","",""};
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

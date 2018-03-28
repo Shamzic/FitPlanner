@@ -13,6 +13,15 @@
     <string name="function">Mega fonction ! </string>
     <string name="imc">Calculer l\'IMC</string>
     <string name="result">Résultat :\nVous devez cliquer sur le bouton \"Calculer l\'IMC\" pour obtenir le résultat.</string>
+    <string name="exercice"> Vous avez choisi </string>
+    <string name="jour1">Lundi</string>
+    <string name="jour2">Mardi</string>
+    <string name="jour3">Mercredi</string>
+    <string name="jour4">Jeudi</string>
+    <string name="jour5">Vendredi</string>
+    <string name="jour6">Samedi</string>
+    <string name="jour7">Dimanche</string>
+    <string name="VALIDATION">Validez</string>
     <string name="user">Email utilisateur</string>E
     <string name="errorMailPass">Entrez un email et un mot de passe valides svp</string>
     <string name="userLogin">Se connecter</string>
@@ -28,4 +37,13 @@
     <string name="askPass">Entrez votre mot de passe svp</string>
     <string name="failRegister">Echec de l\'inscription</string>
     <string name="successRegister">Inscription effectuée avec succès</string>
+    <string name="selectionexercises">Sélection des exercices</string>
+    <string name="name">Nom</string>
+    <string name="firstname">Prénom</string>
+    <string name="save">SAUVEGARDER</string>
+    <string name="age">Date de naissance</string>
+    <string name="city">Ville</string>
+    <string name="male">Homme</string>
+    <string name="female">Femme</string>
+    <string name="failSaveProfil">There is empty fields !</string>
 </resources>

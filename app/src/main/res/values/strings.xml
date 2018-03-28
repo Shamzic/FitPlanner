@@ -27,5 +27,14 @@
     <string name="askPass">Please enter your password</string>
     <string name="failRegister">Fail register</string>
     <string name="successRegister">Register done !</string>
+    <string name="selectionexercises">Exercises selection</string>
+    <string name="name">Name</string>
+    <string name="firstname">First name</string>
+    <string name="save">SAVE</string>
+    <string name="age">Born</string>
+    <string name="city">City</string>
+    <string name="male">male</string>
+    <string name="female">female</string>
+    <string name="failSaveProfil">There is empty fields !</string>
 
 </resources>
