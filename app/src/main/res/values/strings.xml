@@ -36,5 +36,6 @@
     <string name="male">male</string>
     <string name="female">female</string>
     <string name="failSaveProfil">There is empty fields !</string>
+    <string name="achieveSaveProfil">Profile Saved !</string>
 
 </resources>
