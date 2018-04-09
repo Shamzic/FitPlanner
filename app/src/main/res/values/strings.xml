@@ -37,5 +37,12 @@
     <string name="female">female</string>
     <string name="failSaveProfil">There is empty fields !</string>
     <string name="achieveSaveProfil">Profile Saved !</string>
+    <string name="title_activity_menu">Menu</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_pouet">Pouet</string>
 
 </resources>

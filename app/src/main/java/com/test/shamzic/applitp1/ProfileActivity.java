@@ -248,6 +248,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             public void onSuccess(Void aVoid) {
                 Log.wtf(ProfileActivity.TAG, "Profile saved !");
                 Toast.makeText(getApplicationContext(), R.string.achieveSaveProfil, Toast.LENGTH_LONG).show();
+                finish();
+                //goToAccueil();
+                startActivity(new Intent(ProfileActivity.this, MusclesMenu.class));
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
