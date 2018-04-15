@@ -44,6 +44,7 @@ public class MusclesMenu extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    /* Je rajoute un com because je peux pas push faute d'avoir des commit*/
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
