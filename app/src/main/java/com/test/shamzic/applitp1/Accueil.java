@@ -37,7 +37,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Accueil extends AppCompatActivity {
+public class Accueil extends AppCompatActivity /*implements View.OnClickListener*/{
 
 
     private ListView mListView;
@@ -99,7 +99,7 @@ public class Accueil extends AppCompatActivity {
         final HashMap<String, String> finalMap = map;
         //final HashMap<String, String> finalMap1 = map;
         final HashMap<String, String> finalMap1 = map;
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             @SuppressWarnings("unchecked")
             public void onItemClick(AdapterView<?> a, View v, int position, long Id) {
@@ -111,7 +111,21 @@ public class Accueil extends AppCompatActivity {
 
 
 
-        });
+        });*/
     }
+    /*protected void onSelection (View V){
+        //boolean clic = ((Button) V).callOnClick();
+        //final Button B1 = (Button) findViewById(R.id.MuscleAbdo);
+        Intent I2 = new Intent(Accueil.this, MusclesMenu.class);
+        //I2.putExtra("PLANNING", Jour);
+        startActivity(I2);
+    }*/
 
+    public void onPersoSelection (View v) {
+        /*boolean clic = ((Button) v).callOnClick();
+        final Button B1 = (Button) findViewById(R.id.MuscleAbdo);*/
+        Intent I2 = new Intent(Accueil.this, SelectionExercice.class);
+        //I2.putExtra("PLANNING", Jour);
+        startActivity(I2);
+    }
 }

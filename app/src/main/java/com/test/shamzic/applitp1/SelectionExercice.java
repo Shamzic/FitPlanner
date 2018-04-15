@@ -89,7 +89,7 @@ public class SelectionExercice extends Accueil{
     }
 
     public void onButtonClicked (View v) {
-        Intent I2 = new Intent(SelectionExercice.this, MonActivite.class);
+        Intent I2 = new Intent(SelectionExercice.this, MusclesMenu.class);
         I2.putExtra("PLANNING", Jour);
         startActivity(I2);
     }

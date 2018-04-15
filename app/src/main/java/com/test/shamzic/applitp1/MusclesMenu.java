@@ -1,5 +1,6 @@
 package com.test.shamzic.applitp1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class MusclesMenu extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -74,6 +76,22 @@ public class MusclesMenu extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    public void onPersoClicke (View v) {
+        Intent I2 = new Intent(MusclesMenu.this, Accueil.class);
+        //I2.putExtra("PLANNING", Jour);
+        startActivity(I2);
+    }
+
+    /*public onSelection (View v) {
+        Intent I2 = new Intent(MusclesMenu.this, Accueil.class);
+        //I2.putExtra("PLANNING", Jour);
+        startActivity(I2);
+    }*/
+
+    /*protected void onSelection (View V){
+        boolean clic = ((Button) V).callOnClick();
+        final Button B1 = (Button) findViewById(R.id.MuscleAbdo);
+    }*/
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) { //TODO : Faire les différents sous menus
