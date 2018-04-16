@@ -122,10 +122,11 @@ public class Accueil extends AppCompatActivity /*implements View.OnClickListener
     }*/
 
     public void onPersoSelection (View v) {
-        /*boolean clic = ((Button) v).callOnClick();
-        final Button B1 = (Button) findViewById(R.id.MuscleAbdo);*/
         Intent I2 = new Intent(Accueil.this, SelectionExercice.class);
-        //I2.putExtra("PLANNING", Jour);
         startActivity(I2);
+    }
+
+    public void BicepsExercise(View v) {
+        startActivity(new Intent(this, BicepsExercisesActivity.class));
     }
 }

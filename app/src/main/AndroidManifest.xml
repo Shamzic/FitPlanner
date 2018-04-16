@@ -31,6 +31,10 @@
             android:name=".MusclesMenu"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".BicepsExercisesActivity"
+            android:label="@string/title_activity_biceps_exercises"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

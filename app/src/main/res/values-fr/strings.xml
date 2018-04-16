@@ -47,4 +47,10 @@
     <string name="female">Femme</string>
     <string name="failSaveProfil">Echec sauvegarde profil, certains champs sont vides !</string>
     <string name="achieveSaveProfil">Profil sauvegardé !</string>
+    <string name="boutonreturn">Return to the exercises selection</string>
+    <string name="imageMuscles">image du corps humain version muscles</string>
+    <string name="fonte1">FONTE 1</string>
+    <string name="fonte2">FONTE 2</string>
+    <string name="pdc1">POIDS DU CORPS 1</string>
+    <string name="pdc2">POIDS DU CORPS 2</string>
 </resources>

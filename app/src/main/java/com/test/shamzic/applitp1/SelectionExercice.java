@@ -1,7 +1,9 @@
 package com.test.shamzic.applitp1;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 
 public class SelectionExercice extends Accueil{
 
+    private static final String TAG = "RETOUR" ;
     private ListView mListView;
     protected String[] Jour = new String[] {"","","","","","","",""};
 
@@ -92,5 +95,9 @@ public class SelectionExercice extends Accueil{
         Intent I2 = new Intent(SelectionExercice.this, MusclesMenu.class);
         I2.putExtra("PLANNING", Jour);
         startActivity(I2);
+    }
+
+    public void onReturnButtonActivityClicked(View v) {
+        this.finish();
     }
 }

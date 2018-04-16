@@ -51,5 +51,17 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_pouet">Pouet</string>
+    <string name="boutonreturn">Retourner à la sélection des exercices</string>
+    <string name="imageMuscles">image du corps humain version muscles</string>
+    <string name="title_activity_abdos_exercices">AbdosExercicesActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_biceps_exercises">BicepsExercisesActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="fonte1">FONTE 1</string>
+    <string name="fonte2">FONTE 2</string>
+    <string name="pdc1">POIDS DU CORPS 1</string>
+    <string name="pdc2">POIDS DU CORPS 2</string>
 
 </resources>
