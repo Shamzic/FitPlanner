@@ -117,4 +117,9 @@ public class MusclesMenu extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    public void OnPlanningClicked(View v) {
+        startActivity(new Intent(this, CalendarActivity.class));
+    }
 }

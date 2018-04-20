@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
+            android:onClick="OnPlanningClicked"
             android:text="PLANNING" />
 
         <Button

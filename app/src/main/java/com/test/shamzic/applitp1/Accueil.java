@@ -16,23 +16,13 @@ public class Accueil extends AppCompatActivity {
 
 package com.test.shamzic.applitp1;
 
-import android.app.AlertDialog;
-import android.app.LauncherActivity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Button;
-
-import android.view.View;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -129,4 +119,6 @@ public class Accueil extends AppCompatActivity /*implements View.OnClickListener
     public void BicepsExercise(View v) {
         startActivity(new Intent(this, BicepsExercisesActivity.class));
     }
+
+
 }
