@@ -65,5 +65,8 @@
     <string name="pdc2">POIDS DU CORPS 2</string>
     <string name="title_activity_maps">Map</string>
 
+    <string name="selectionDayTrainingButton">Add this exercise</string>
+    <string name="achieveMAJcalendar">Calendrier d\'exercices mis à jour !</string>
+    <string name="failMAJcalendar">Echec de la mise à jour du calendrier</string>
 
 </resources>
