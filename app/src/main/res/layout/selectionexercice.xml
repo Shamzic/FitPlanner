@@ -33,7 +33,7 @@
         android:layout_alignTop="@id/imageMuscle"
         android:layout_marginTop="150dp"
         android:background="@null"
-        android:onClick="onPersoSelection"/>
+        android:onClick="BicepsExercise"/>
 
     <Button
         android:id="@+id/MuscleBiceps"
@@ -48,5 +48,18 @@
     <ListView android:id="@+id/listView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        android:textStyle="italic" />
+
+
 
 </RelativeLayout>

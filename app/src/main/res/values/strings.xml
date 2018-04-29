@@ -63,5 +63,7 @@
     <string name="fonte2">FONTE 2</string>
     <string name="pdc1">POIDS DU CORPS 1</string>
     <string name="pdc2">POIDS DU CORPS 2</string>
+    <string name="title_activity_maps">Map</string>
+
 
 </resources>

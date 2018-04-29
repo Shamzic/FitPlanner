@@ -21,12 +21,12 @@ public class SelectionExercice extends Accueil{
         setContentView(R.layout.selection_date);
 
         Intent intent = getIntent();
-        String Titre = intent.getStringExtra(EXERCICE_SELECTION);
+        //String Titre = intent.getStringExtra(NOM_EXERCICE);
 
         TextView total = (TextView )findViewById(R.id.date1);
 
         if (intent != null) {
-            Jour[0] = Titre;
+            //Jour[0] = Titre;
             total.setText("Exercice choisi : "+Jour[0]);
         }
         else{

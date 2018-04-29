@@ -27,7 +27,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Accueil extends AppCompatActivity /*implements View.OnClickListener*/{
+public class Accueil extends AppCompatActivity{
 
 
     private ListView mListView;
@@ -41,7 +41,6 @@ public class Accueil extends AppCompatActivity /*implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         TextView tv = new TextView(this);
-        tv.setText("Hello, Android");
         setContentView(tv);
 
         setContentView(R.layout.selectionexercice);

@@ -78,21 +78,10 @@ public class MusclesMenu extends AppCompatActivity
     }
 
     public void onPersoClicke (View v) {
-        Intent I2 = new Intent(MusclesMenu.this, Accueil.class);
-        //I2.putExtra("PLANNING", Jour);
-        startActivity(I2);
+        Intent I = new Intent(MusclesMenu.this, Accueil.class);
+        startActivity(I);
     }
 
-    /*public onSelection (View v) {
-        Intent I2 = new Intent(MusclesMenu.this, Accueil.class);
-        //I2.putExtra("PLANNING", Jour);
-        startActivity(I2);
-    }*/
-
-    /*protected void onSelection (View V){
-        boolean clic = ((Button) V).callOnClick();
-        final Button B1 = (Button) findViewById(R.id.MuscleAbdo);
-    }*/
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) { //TODO : Faire les différents sous menus
@@ -117,7 +106,12 @@ public class MusclesMenu extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
+    public void OnCommerceClicked(View v) {
+        Intent I = new Intent(MusclesMenu.this, CommerceActivity.class);
+        startActivity(I);
+        //startActivity(new Intent(MusclesMenu.this, CommerceActivity.class));
+        //startActivity(new Intent(MusclesMenu.this, Accueil.class));
+    }
 
     public void OnPlanningClicked(View v) {
         startActivity(new Intent(this, CalendarActivity.class));
