@@ -18,6 +18,7 @@ package com.test.shamzic.applitp1;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.MainThread;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ListView;
@@ -120,5 +121,7 @@ public class Accueil extends AppCompatActivity /*implements View.OnClickListener
         startActivity(new Intent(this, BicepsExercisesActivity.class));
     }
 
-
+    public void OnButtonCuisseClicked (View v) {
+        startActivity(new Intent(this, DatePicker.class));
+    }
 }

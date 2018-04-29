@@ -99,7 +99,7 @@ public class CalendarActivity extends AppCompatActivity {
 
                                 if( temp.equals(saveDate))
                                 {
-                                    System.out.println("ici");
+                                    //System.out.println("ici");
                                     dateText+="\n"+exo.getVal();
                                     System.out.println("dateText : "+dateText);
                                     t = new TextView(CalendarActivity.super.getApplicationContext());
