@@ -2,53 +2,75 @@ package com.test.shamzic.applitp1;
 
 import android.Manifest;
 import android.content.Context;
-import android.location.Criteria;
-import android.location.LocationProvider;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.location.LocationProvider;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.places.Places;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.places.internal.PlaceEntity;
+import com.google.android.gms.location.places.ui.PlacePicker;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MapStyleOptions;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PointOfInterest;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.google.android.gms.location.places.Place;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 
-public class CommerceActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnPoiClickListener {
+public class CommerceActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnPoiClickListener, GoogleApiClient.OnConnectionFailedListener, View.OnClickListener, Callback {
     private GoogleMap mMap;
+    private GoogleApiClient mGoogleApiClient;
+
+    private Button requestButton;
+    private TextView resultsTextView;
+    private Snackbar snackbar;
+    private LinearLayout linearLayout;
+
+    private final OkHttpClient client = new OkHttpClient();
+
     private double Lat;
     private double Lon;
 
@@ -61,14 +83,16 @@ public class CommerceActivity extends AppCompatActivity implements OnMapReadyCal
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        makeView();
+        setContentView(linearLayout);
+
+        snackbar = Snackbar.make(linearLayout, "Requête en cours d'exécution",
+                Snackbar.LENGTH_INDEFINITE);
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         ArrayList<LocationProvider> providers = new ArrayList<LocationProvider>();
         ArrayList<String> names = (ArrayList) locationManager.getProviders(true);
-        String S = names.get(0);
-        LocationProvider Loc = locationManager.getProvider(S);
 
-        //Log.d("ZALORS","ouiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
         for (String name : names) {
             providers.add(locationManager.getProvider(name));
         }
@@ -140,9 +164,98 @@ public class CommerceActivity extends AppCompatActivity implements OnMapReadyCal
 
             }
         });
-        //Location Loc = locationManager.getLastKnownLocation(String.valueOf(providers.get(0)));
+        //////////////////////////////////////////////////
+
+
+        //////////////////////////////////////
+
+        /*Place Lieu = new Place() {
+            @Override
+            public String getId() {
+                return null;
+            }
+
+            @Override
+            public List<Integer> getPlaceTypes() {
+                return null;
+            }
+
+            @Nullable
+            @Override
+            public CharSequence getAddress() {
+                return null;
+            }
+
+            @Override
+            public Locale getLocale() {
+                return null;
+            }
+
+            @Override
+            public CharSequence getName() {
+                return null;
+            }
+
+            @Override
+            public LatLng getLatLng() {
+                return null;
+            }
+
+            @Nullable
+            @Override
+            public LatLngBounds getViewport() {
+                return null;
+            }
+
+            @Nullable
+            @Override
+            public Uri getWebsiteUri() {
+                return null;
+            }
+
+            @Nullable
+            @Override
+            public CharSequence getPhoneNumber() {
+                return null;
+            }
+
+            @Override
+            public float getRating() {
+                return 0;
+            }
+
+            @Override
+            public int getPriceLevel() {
+                return 0;
+            }
+
+            @Nullable
+            @Override
+            public CharSequence getAttributions() {
+                return null;
+            }
+
+            @Override
+            public Place freeze() {
+                return null;
+            }
+
+            @Override
+            public boolean isDataValid() {
+                return false;
+            }
+        };
+        //Lieu.getPlaceTypes().contains()
+
+            int PLACE_PICKER_REQUEST = 1;
+        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();*/
+
 
     }
+
+    private void readStream(InputStream in) {
+    }
+
     protected boolean isRouteDisplayed() {
 
         return false;
@@ -199,4 +312,69 @@ public class CommerceActivity extends AppCompatActivity implements OnMapReadyCal
 
     }
 
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
+////////////////////////////////////////////////////////////////////////////////////////////////////
+    private void makeView() {
+        requestButton = new Button(this);
+        requestButton.setText("Lancer une requête");
+        requestButton.setOnClickListener(this);
+
+        resultsTextView = new TextView(this);
+
+        linearLayout = new LinearLayout(this);
+        linearLayout.setOrientation(LinearLayout.VERTICAL);
+        linearLayout.addView(requestButton);
+        linearLayout.addView(resultsTextView);
+    }
+
+
+    public void onClick(View view) {
+        if (!isConnected()) {
+            Snackbar.make(view, "Aucune connexion à internet.", Snackbar.LENGTH_LONG).show();
+            return;
+        }
+        snackbar.show();
+
+        Request request = new Request.Builder().url("https://maps.googleapis.com/maps/api/place/nearbysearch/json?AIzaSyADlRw1YSZ0iRmaVMA_t04UmGNyWvVkySs&Lat,Lon&1000").build();
+        //http://httpbin.org/ip
+        //https://maps.googleapis.com/maps/api/place/nearbysearch/output?parameters
+        client.newCall(request).enqueue(this);
+    }
+
+    private boolean isConnected() {
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
+    }
+
+
+    public void onFailure(Call call, IOException e) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                resultsTextView.setText("Erreur");
+                snackbar.dismiss();
+            }
+        });
+    }
+
+    public void onResponse(Call call, Response response) throws IOException {
+        if (!response.isSuccessful()) {
+            throw new IOException(response.toString());
+        }
+
+        final String body = response.body().string();
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                resultsTextView.setText(body);
+                snackbar.dismiss();
+            }
+        });
+    }
 }

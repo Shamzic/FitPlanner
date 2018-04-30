@@ -12,10 +12,10 @@ import android.widget.TextView;
 public class SelectionExercice extends Accueil{
 
     private static final String TAG = "RETOUR" ;
-    private ListView mListView;
-    protected String[] Jour = new String[] {"","","","","","","",""};
+    //private ListView mListView;
+    //protected String[] Jour = new String[] {"","","","","","","",""};
 
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.selection_date);
@@ -32,9 +32,9 @@ public class SelectionExercice extends Accueil{
         else{
             total.setText("PROBLEME");
         }
-    }
+    }*/
 
-    public void onCheckboxClicked(View view) {
+    /*public void onCheckboxClicked(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
         final CheckBox checkBox1 = (CheckBox) findViewById(R.id.check_lundi);
@@ -89,15 +89,15 @@ public class SelectionExercice extends Accueil{
             Jour[7] = "";
         }
 
-    }
+    }*/
 
-    public void onButtonClicked (View v) {
+    /*public void onButtonClicked (View v) {
         Intent I2 = new Intent(SelectionExercice.this, MusclesMenu.class);
         I2.putExtra("PLANNING", Jour);
         startActivity(I2);
-    }
+    }*/
 
-    public void onReturnButtonActivityClicked(View v) {
+    /*public void onReturnButtonActivityClicked(View v) {
         this.finish();
-    }
+    }*/
 }
