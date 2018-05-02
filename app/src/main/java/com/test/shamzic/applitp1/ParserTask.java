@@ -22,12 +22,14 @@ import java.util.Map;
 
 public class ParserTask extends AsyncTask<String, Integer, List<HashMap<String, String>>>{
     JSONObject jObject; // Invoked by execute() method of this object
+    int MODE;
     CommerceActivity Act;
 
     ArrayList<MarkerOptions> Options = new ArrayList<MarkerOptions>();
 
-    public ParserTask(CommerceActivity cont) {
+    public ParserTask(CommerceActivity cont, int mode) {
         Act = cont;
+        MODE = mode;
     }
 
     @Override
@@ -68,11 +70,11 @@ public class ParserTask extends AsyncTask<String, Integer, List<HashMap<String, 
             // Setting the position for the marker
             markerOptions.position(latLng);
             markerOptions.title(name + " : " + vicinity);
-            if (Act.MODE == 1) {
+            if (MODE == 1) {
                 markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
             }
             else {
-                if (Act.MODE == 3){
+                if (MODE == 3){
                     markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
                 }
 

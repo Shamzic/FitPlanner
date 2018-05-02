@@ -22,13 +22,13 @@ import static android.os.AsyncTask.Status.RUNNING;
 
 public class PlacesTask extends AsyncTask<String, Integer, String> {
     CommerceActivity Act;
+    int MODE;
     ArrayList<MarkerOptions> Options;
     String data = null;
 
-    public PlacesTask(CommerceActivity commerceActivity) {
+    public PlacesTask(CommerceActivity commerceActivity, int mode) {
        Act = commerceActivity;
-
-
+       MODE = mode;
     }
 
     // Invoked by execute() method of this object
@@ -44,7 +44,7 @@ public class PlacesTask extends AsyncTask<String, Integer, String> {
     // Executed after the complete execution of doInBackground() method
     @Override
     protected void onPostExecute(String result) {
-        ParserTask parserTask = new ParserTask(Act);
+        ParserTask parserTask = new ParserTask(Act, MODE);
         // Start parsing the Google places in JSON format
         // Invokes the "doInBackground()" method of the class
         parserTask.execute(result);

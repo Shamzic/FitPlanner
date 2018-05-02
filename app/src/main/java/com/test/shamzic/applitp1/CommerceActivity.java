@@ -76,7 +76,8 @@ import static android.os.AsyncTask.Status.RUNNING;
 public class CommerceActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnPoiClickListener, GoogleApiClient.OnConnectionFailedListener, View.OnClickListener, Callback {
     GoogleMap mMap;
     ArrayList<MarkerOptions> OPTIONS = new ArrayList<MarkerOptions>();
-    int MODE = 0;
+    int MODE = 3;
+    String TYPE = "stadium";
 
 
     /*private Button requestButton;
@@ -201,101 +202,35 @@ public class CommerceActivity extends AppCompatActivity implements OnMapReadyCal
         if (!success) {
             Log.e("JSON", "Style parsing failed.");
         }
-        Log.d("Coucout", "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+
         StringBuilder sbValue = new StringBuilder(sbMethod());
-        PlacesTask placesTask = new PlacesTask(this);
+        PlacesTask placesTask = new PlacesTask(this, MODE);
         placesTask.execute(sbValue.toString());
 
-        if (placesTask.getStatus() == FINISHED){
-            /*Log.d("Coucout","IL A FIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNNNIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
-            try {
-                Log.d("Coucout", placesTask.get());
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } catch (ExecutionException e) {
-                e.printStackTrace();
-            }*/
-        }
-
-
-        //Log.d("url qu'on renvoie", sbValue.toString());
-
-
-        //String A = placesTask.doInBackground(sbValue.toString());
-        //placesTask.onPostExecute(A);
-
-
-        /*for (int i = 0; i < I;i++ ){
-            mMap.addMarker(placesTask.Options.get(i));
-
-        }*/
-        //PlacesTask
-
-        /*mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(Lat, Lon))
-                .title("Hello world"));*/
-
-        // Add a marker in Sydney and move the camera
-
-        //LatLng sydney = new LatLng(-34, 151);
-       // mMap.addMarker(new MarkerOptions().position(Position).title("Marker in Sydney"));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(Position));
-
     }
-
-    /*@Override
-    public void onPoiClick(PointOfInterest poi) {
-        Toast.makeText(getApplicationContext(), "Clicked: " +
-                        poi.name + "\nPlace ID:" + poi.placeId +
-                        "\nLatitude:" + poi.latLng.latitude +
-                        " Longitude:" + poi.latLng.longitude,
-                Toast.LENGTH_SHORT).show();
-
-    }*/
-
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
-////////////////////////////////////////////////////////////////////////////////////////////////////
-    /*private void makeView() {
-        requestButton = new Button(this);
-        requestButton.setText("Lancer une requête");
-        requestButton.setOnClickListener(this);
-
-        resultsTextView = new TextView(this);
-
-        linearLayout = new LinearLayout(this);
-        linearLayout.setOrientation(LinearLayout.VERTICAL);
-        linearLayout.addView(requestButton);
-        linearLayout.addView(resultsTextView);
-    }*/
 
     public StringBuilder sbMethod() { //use your current location here double mLatitude = 37.77657;
         StringBuilder sb = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         sb.append("location=" + Lat + "," + Lon);
 
         sb.append("&rankby=distance");
-        //sb.append("&keyword=park");
-        if (MODE == 0) {
-            //sb.append("&types=" + "park" + "stadium" + " gym" + "bicycle_store" + "shoe_store");
-            //sb.append("&types=" + "restaurant"+"|"+"Park");
-            sb.append("&types=" + "shoe_store"+"|"+"park");
-        }
+
         if (MODE == 1) {
-            //sb.append("&types=" + "park" + "stadium" + " gym" + "bicycle_store" + "shoe_store");
-            //sb.append("&types=" + "restaurant"+"|"+"Park");
-            sb.append("&types=" + "stadium");
+            sb.append("&types=" + TYPE);//stadium//gym//spa
         }
-        if (MODE == 2) {
+        else if (MODE == 2) {
             //sb.append("&types=" + "park" + "stadium" + " gym" + "bicycle_store" + "shoe_store");
             //sb.append("&types=" + "restaurant"+"|"+"Park");
-            sb.append("&types=" + "shoe_store");
+            sb.append("&keyword=" + "sports");
+            sb.append("&types=" + "store");
         }
-        if (MODE == 2) {
-            //sb.append("&types=" + "park" + "stadium" + " gym" + "bicycle_store" + "shoe_store");
-            //sb.append("&types=" + "restaurant"+"|"+"Park");
+        else if (MODE == 3) {
+            sb.append("&keyword=" + "parc");
             sb.append("&types=" + "park");
         }
         //sb.append("&sensor=true");
@@ -308,10 +243,12 @@ public class CommerceActivity extends AppCompatActivity implements OnMapReadyCal
         MODE = 1;
         Log.d("TOUCHE", String.valueOf(MODE));
         mMap.clear();
+        TYPE = "stadium";
         onMapReady(mMap);
-        /*StringBuilder sbValue = new StringBuilder(sbMethod());
-        PlacesTask placesTask = new PlacesTask(this);
-        placesTask.execute(sbValue.toString());*/
+        TYPE = "gym";
+        onMapReady(mMap);
+        TYPE = "spa";
+        onMapReady(mMap);
     }
     public void clickCommerces(View v){
         MODE = 2;
