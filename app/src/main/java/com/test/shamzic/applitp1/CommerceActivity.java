@@ -1,6 +1,7 @@
 package com.test.shamzic.applitp1;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
@@ -11,6 +12,7 @@ import android.location.LocationProvider;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -36,11 +38,15 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PointOfInterest;
 import com.google.android.gms.location.places.Place;
+
+import org.json.JSONObject;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -50,26 +56,35 @@ import okhttp3.Response;
 
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
+
+import static android.os.AsyncTask.Status.FINISHED;
+import static android.os.AsyncTask.Status.RUNNING;
 
 
 public class CommerceActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnPoiClickListener, GoogleApiClient.OnConnectionFailedListener, View.OnClickListener, Callback {
-    private GoogleMap mMap;
-    private GoogleApiClient mGoogleApiClient;
+    GoogleMap mMap;
+    ArrayList<MarkerOptions> OPTIONS = new ArrayList<MarkerOptions>();
+    int MODE = 0;
 
-    private Button requestButton;
+
+    /*private Button requestButton;
     private TextView resultsTextView;
     private Snackbar snackbar;
-    private LinearLayout linearLayout;
+    private LinearLayout linearLayout;*/
 
-    private final OkHttpClient client = new OkHttpClient();
+    //private final OkHttpClient client = new OkHttpClient();
 
     private double Lat;
     private double Lon;
@@ -83,11 +98,6 @@ public class CommerceActivity extends AppCompatActivity implements OnMapReadyCal
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        makeView();
-        setContentView(linearLayout);
-
-        snackbar = Snackbar.make(linearLayout, "Requête en cours d'exécution",
-                Snackbar.LENGTH_INDEFINITE);
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         ArrayList<LocationProvider> providers = new ArrayList<LocationProvider>();
@@ -164,107 +174,6 @@ public class CommerceActivity extends AppCompatActivity implements OnMapReadyCal
 
             }
         });
-        //////////////////////////////////////////////////
-
-
-        //////////////////////////////////////
-
-        /*Place Lieu = new Place() {
-            @Override
-            public String getId() {
-                return null;
-            }
-
-            @Override
-            public List<Integer> getPlaceTypes() {
-                return null;
-            }
-
-            @Nullable
-            @Override
-            public CharSequence getAddress() {
-                return null;
-            }
-
-            @Override
-            public Locale getLocale() {
-                return null;
-            }
-
-            @Override
-            public CharSequence getName() {
-                return null;
-            }
-
-            @Override
-            public LatLng getLatLng() {
-                return null;
-            }
-
-            @Nullable
-            @Override
-            public LatLngBounds getViewport() {
-                return null;
-            }
-
-            @Nullable
-            @Override
-            public Uri getWebsiteUri() {
-                return null;
-            }
-
-            @Nullable
-            @Override
-            public CharSequence getPhoneNumber() {
-                return null;
-            }
-
-            @Override
-            public float getRating() {
-                return 0;
-            }
-
-            @Override
-            public int getPriceLevel() {
-                return 0;
-            }
-
-            @Nullable
-            @Override
-            public CharSequence getAttributions() {
-                return null;
-            }
-
-            @Override
-            public Place freeze() {
-                return null;
-            }
-
-            @Override
-            public boolean isDataValid() {
-                return false;
-            }
-        };
-        //Lieu.getPlaceTypes().contains()
-
-            int PLACE_PICKER_REQUEST = 1;
-        PlacePicker.IntentBuilder builder = new PlacePicker.IntentBuilder();*/
-
-
-    }
-
-    private void readStream(InputStream in) {
-    }
-
-    protected boolean isRouteDisplayed() {
-
-        return false;
-
-    }
-
-    protected boolean isLocationDisplayed() {
-        return true;
-
     }
 
     @Override
@@ -289,20 +198,52 @@ public class CommerceActivity extends AppCompatActivity implements OnMapReadyCal
         boolean success = googleMap.setMapStyle(new MapStyleOptions(getResources()
                 .getString(R.string.style_json)));
 
-        /*if (!success) {
-            Log.e("Je sais pas ce qu'on fait", "Style parsing failed.");
+        if (!success) {
+            Log.e("JSON", "Style parsing failed.");
+        }
+        Log.d("Coucout", "zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+        StringBuilder sbValue = new StringBuilder(sbMethod());
+        PlacesTask placesTask = new PlacesTask(this);
+        placesTask.execute(sbValue.toString());
+
+        if (placesTask.getStatus() == FINISHED){
+            /*Log.d("Coucout","IL A FIIIIIIIIIIIIIIIIIINNNNNNNNNNNNNNNNNNNNNIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII");
+            try {
+                Log.d("Coucout", placesTask.get());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }*/
+        }
+
+
+        //Log.d("url qu'on renvoie", sbValue.toString());
+
+
+        //String A = placesTask.doInBackground(sbValue.toString());
+        //placesTask.onPostExecute(A);
+
+
+        /*for (int i = 0; i < I;i++ ){
+            mMap.addMarker(placesTask.Options.get(i));
+
         }*/
+        //PlacesTask
 
-
+        /*mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(Lat, Lon))
+                .title("Hello world"));*/
 
         // Add a marker in Sydney and move the camera
 
         //LatLng sydney = new LatLng(-34, 151);
        // mMap.addMarker(new MarkerOptions().position(Position).title("Marker in Sydney"));
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(Position));
+
     }
 
-    @Override
+    /*@Override
     public void onPoiClick(PointOfInterest poi) {
         Toast.makeText(getApplicationContext(), "Clicked: " +
                         poi.name + "\nPlace ID:" + poi.placeId +
@@ -310,14 +251,15 @@ public class CommerceActivity extends AppCompatActivity implements OnMapReadyCal
                         " Longitude:" + poi.latLng.longitude,
                 Toast.LENGTH_SHORT).show();
 
-    }
+    }*/
+
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-    private void makeView() {
+    /*private void makeView() {
         requestButton = new Button(this);
         requestButton.setText("Lancer une requête");
         requestButton.setOnClickListener(this);
@@ -328,53 +270,84 @@ public class CommerceActivity extends AppCompatActivity implements OnMapReadyCal
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         linearLayout.addView(requestButton);
         linearLayout.addView(resultsTextView);
-    }
+    }*/
 
+    public StringBuilder sbMethod() { //use your current location here double mLatitude = 37.77657;
+        StringBuilder sb = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        sb.append("location=" + Lat + "," + Lon);
 
-    public void onClick(View view) {
-        if (!isConnected()) {
-            Snackbar.make(view, "Aucune connexion à internet.", Snackbar.LENGTH_LONG).show();
-            return;
+        sb.append("&rankby=distance");
+        //sb.append("&keyword=park");
+        if (MODE == 0) {
+            //sb.append("&types=" + "park" + "stadium" + " gym" + "bicycle_store" + "shoe_store");
+            //sb.append("&types=" + "restaurant"+"|"+"Park");
+            sb.append("&types=" + "shoe_store"+"|"+"park");
         }
-        snackbar.show();
+        if (MODE == 1) {
+            //sb.append("&types=" + "park" + "stadium" + " gym" + "bicycle_store" + "shoe_store");
+            //sb.append("&types=" + "restaurant"+"|"+"Park");
+            sb.append("&types=" + "stadium");
+        }
+        if (MODE == 2) {
+            //sb.append("&types=" + "park" + "stadium" + " gym" + "bicycle_store" + "shoe_store");
+            //sb.append("&types=" + "restaurant"+"|"+"Park");
+            sb.append("&types=" + "shoe_store");
+        }
+        if (MODE == 2) {
+            //sb.append("&types=" + "park" + "stadium" + " gym" + "bicycle_store" + "shoe_store");
+            //sb.append("&types=" + "restaurant"+"|"+"Park");
+            sb.append("&types=" + "park");
+        }
+        //sb.append("&sensor=true");
+        sb.append("&key=AIzaSyADlRw1YSZ0iRmaVMA_t04UmGNyWvVkySs&Lat");
+        Log.d("Map", "api: " + sb.toString());
+        return sb;
+        }
 
-        Request request = new Request.Builder().url("https://maps.googleapis.com/maps/api/place/nearbysearch/json?AIzaSyADlRw1YSZ0iRmaVMA_t04UmGNyWvVkySs&Lat,Lon&1000").build();
-        //http://httpbin.org/ip
-        //https://maps.googleapis.com/maps/api/place/nearbysearch/output?parameters
-        client.newCall(request).enqueue(this);
+    public void clickSports(View v){
+        MODE = 1;
+        Log.d("TOUCHE", String.valueOf(MODE));
+        mMap.clear();
+        onMapReady(mMap);
+        /*StringBuilder sbValue = new StringBuilder(sbMethod());
+        PlacesTask placesTask = new PlacesTask(this);
+        placesTask.execute(sbValue.toString());*/
+    }
+    public void clickCommerces(View v){
+        MODE = 2;
+        Log.d("TOUCHE", String.valueOf(MODE));
+        mMap.clear();
+        onMapReady(mMap);
+        /*StringBuilder sbValue = new StringBuilder(sbMethod());
+        PlacesTask placesTask = new PlacesTask(this);
+        placesTask.execute(sbValue.toString());*/
+    }
+    public void clickParcs(View v){
+        MODE = 3;
+        Log.d("TOUCHE", String.valueOf(MODE));
+        mMap.clear();
+        onMapReady(mMap);
+        /*StringBuilder sbValue = new StringBuilder(sbMethod());
+        PlacesTask placesTask = new PlacesTask(this);
+        placesTask.execute(sbValue.toString());*/
+    }
+    @Override
+    public void onPoiClick(PointOfInterest pointOfInterest) {
+
     }
 
-    private boolean isConnected() {
-        ConnectivityManager connectivityManager =
-                (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        return networkInfo != null && networkInfo.isConnected();
+    @Override
+    public void onClick(View v) {
+
     }
 
-
+    @Override
     public void onFailure(Call call, IOException e) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                resultsTextView.setText("Erreur");
-                snackbar.dismiss();
-            }
-        });
+
     }
 
+    @Override
     public void onResponse(Call call, Response response) throws IOException {
-        if (!response.isSuccessful()) {
-            throw new IOException(response.toString());
-        }
 
-        final String body = response.body().string();
-
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                resultsTextView.setText(body);
-                snackbar.dismiss();
-            }
-        });
     }
 }

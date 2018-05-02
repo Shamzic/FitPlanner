@@ -24,23 +24,30 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/sports"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Salles de sports"
-            android:textSize="10sp"/>
+            android:onClick="clickSports"
+            android:textSize="10sp" />
 
         <Button
+            android:id="@+id/commerces"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Commerces"
-            android:textSize="10sp"/>
+            android:onClick= "clickCommerces"
+            android:textSize="10sp"
+            tools:ignore="OnClick" />
 
         <Button
+            android:id="@+id/parcs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="clickParcs"
             android:text="Pleine air"
             android:textSize="10sp"/>
         </LinearLayout>

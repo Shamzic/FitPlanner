@@ -61,5 +61,5 @@
     style=feature:water%7Celement:geometry.fill%7Ccolor:0xb9d3c2
     style=feature:water%7Celement:labels.text.fill%7Ccolor:0x92998d
     size=480x360
-    <string name="AIzaSyADlRw1YSZ0iRmaVMA_t04UmGNyWvVkySs" templateMergeStrategy="preserve" translatable="false">AIzaSyADlRw1YSZ0iRmaVMA_t04UmGNyWvVkySs</string>
+    <string name="AIzaSyADlRw1YSZ0iRmaVMA_t04UmGNyWvVkySs" templateMergeStrategy="preserve" translatable="false"></string>
 </resources>
