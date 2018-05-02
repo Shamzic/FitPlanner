@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_dark_background"
-    tools:context=".BicepsExercisesActivity$PlaceholderFragment">
+    tools:context=".BicepsExercisesActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -35,5 +35,13 @@
             android:background="@drawable/diamond_push_up"
             tools:layout_editor_absoluteX="0dp"
             tools:layout_editor_absoluteY="115dp" />
+
+        <Button
+            android:id="@+id/id_button_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/biceps_pdc2"
+            android:text="@string/selectionDayTrainingButton" />
+
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -8,10 +8,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class BicepsExercisesActivity extends AppCompatActivity {
+public class QuadricepsExercisesActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -30,8 +31,9 @@ public class BicepsExercisesActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("lancement quadri");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_biceps_exercises);
+        setContentView(R.layout.activity_quadriceps_exercises);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -51,14 +53,14 @@ public class BicepsExercisesActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setText(R.string.fonte2);
         tabLayout.getTabAt(2).setText(R.string.pdc1);
         tabLayout.getTabAt(3).setText(R.string.pdc2);
-
+        System.out.println("quadri lancé");
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_biceps_exercises, menu);
+        getMenuInflater().inflate(R.menu.menu_quadriceps_exercises, menu);
         return true;
     }
 
@@ -94,16 +96,16 @@ public class BicepsExercisesActivity extends AppCompatActivity {
 
             switch (position) {
                 case 0 :
-                Exercises_biceps_fonte1 tab1 =  new Exercises_biceps_fonte1();
+                    Exercises_quadriceps_fonte1 tab1 =  new Exercises_quadriceps_fonte1();
                     return tab1;
                 case 1 :
-                    Exercises_biceps_fonte2 tab2 = new Exercises_biceps_fonte2();
+                    Exercises_quadriceps_fonte2 tab2 = new Exercises_quadriceps_fonte2();
                     return tab2;
                 case 2 :
-                    Exercises_biceps_pdc1 tab3 = new Exercises_biceps_pdc1();
+                    Exercises_quadriceps_pdc1 tab3 = new Exercises_quadriceps_pdc1();
                     return tab3;
                 case 3 :
-                    Exercises_biceps_pdc2 tab4 = new Exercises_biceps_pdc2();
+                    Exercises_quadriceps_pdc2 tab4 = new Exercises_quadriceps_pdc2();
                     return tab4;
                 default:
                     return null;

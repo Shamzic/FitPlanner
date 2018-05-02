@@ -68,5 +68,6 @@
     <string name="selectionDayTrainingButton">Add this exercise</string>
     <string name="achieveMAJcalendar">Calendrier d\'exercices mis à jour !</string>
     <string name="failMAJcalendar">Echec de la mise à jour du calendrier</string>
+    <string name="title_activity_quadriceps_exercises">Quadriceps activity</string>
 
 </resources>

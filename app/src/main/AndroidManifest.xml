@@ -42,6 +42,10 @@
             android:name=".BicepsExercisesActivity"
             android:label="@string/title_activity_biceps_exercises"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".QuadricepsExercisesActivity"
+            android:label="@string/title_activity_quadriceps_exercises"
+            android:theme="@style/AppTheme" />
         <activity android:name=".CommerceActivity" />
         <activity android:name=".CalendarActivity" />
         <!--

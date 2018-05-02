@@ -6,13 +6,22 @@
     <Button
         android:id="@+id/MuscleCuisse"
         android:layout_width="51dp"
-        android:layout_height="105dp"
+        android:layout_height="131dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="195dp"
+        android:layout_marginBottom="186dp"
         android:layout_marginStart="126dp"
         android:background="@null"
-        android:onClick="OnButtonCuisseClicked" />
+        android:onClick="QuadricepsExercise" />
+
+    <Button
+        android:id="@+id/MuscleCuisse2"
+        android:layout_width="51dp"
+        android:layout_height="131dp"
+        android:layout_alignTop="@+id/MuscleCuisse"
+        android:layout_toStartOf="@+id/MuscleBiceps2"
+        android:background="@null"
+        android:onClick="QuadricepsExercise" />
 
     <ImageView
         android:id="@+id/imageMuscle"
@@ -48,11 +57,21 @@
 
     <Button
         android:id="@+id/MuscleBiceps"
-        android:layout_width="40dp"
+        android:layout_width="53dp"
         android:layout_height="59dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/MuscleDeltoide"
         android:layout_marginStart="70dp"
+        android:background="@null"
+        android:onClick="BicepsExercise" />
+
+    <Button
+        android:id="@+id/MuscleBiceps2"
+        android:layout_width="49dp"
+        android:layout_height="59dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/MuscleDeltoide"
+        android:layout_marginEnd="73dp"
         android:background="@null"
         android:onClick="BicepsExercise" />
 
@@ -61,7 +80,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true" >
+
+    </ListView>
 
 
     <TextView

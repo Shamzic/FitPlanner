@@ -1,7 +1,10 @@
 package com.test.shamzic.applitp1;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -52,6 +55,16 @@ public class MonActivite extends AppCompatActivity implements View.OnClickListen
 
     buttonSignup.setOnClickListener(this);
     textViewSignin.setOnClickListener(this);
+
+
+    ConnectivityManager connMgr = (ConnectivityManager)
+    getSystemService(Context.CONNECTIVITY_SERVICE);
+    NetworkInfo networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+    boolean isWifiConn = networkInfo.isConnected();
+    networkInfo = connMgr.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+    boolean isMobileConn = networkInfo.isConnected();
+    System.out.println("Wifi connected: " + isWifiConn);
+    System.out.println("Mobile connected: " + isMobileConn);
   }
 
   private void registerUser() {
