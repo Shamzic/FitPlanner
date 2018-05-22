@@ -14,8 +14,20 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //signingConfig signingConfigs.release
         }
     }
+
+/*    signingConfigs {
+        release {
+            storeFile file(project.file("key0.jks"))
+            storePassword "tototo"
+            keyAlias "key0"
+            keyPassword "tototo"
+        }
+    }*/
+
+
 }
 
 allprojects {
