@@ -109,11 +109,14 @@ public class MusclesMenu extends AppCompatActivity
     public void OnCommerceClicked(View v) {
         Intent I = new Intent(MusclesMenu.this, CommerceActivity.class);
         startActivity(I);
-        //startActivity(new Intent(MusclesMenu.this, CommerceActivity.class));
-        //startActivity(new Intent(MusclesMenu.this, Accueil.class));
     }
 
     public void OnPlanningClicked(View v) {
         startActivity(new Intent(this, CalendarActivity.class));
+    }
+
+    public void OnReseauClicked(View v) {
+        Intent I = new Intent(MusclesMenu.this, ReseauActivity.class);
+        startActivity(I);
     }
 }

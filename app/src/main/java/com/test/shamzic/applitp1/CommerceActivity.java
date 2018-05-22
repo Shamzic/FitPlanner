@@ -79,14 +79,6 @@ public class CommerceActivity extends AppCompatActivity implements OnMapReadyCal
     int MODE = 3;
     String TYPE = "stadium";
 
-
-    /*private Button requestButton;
-    private TextView resultsTextView;
-    private Snackbar snackbar;
-    private LinearLayout linearLayout;*/
-
-    //private final OkHttpClient client = new OkHttpClient();
-
     private double Lat;
     private double Lon;
 

@@ -47,7 +47,10 @@
             android:label="@string/title_activity_quadriceps_exercises"
             android:theme="@style/AppTheme" />
         <activity android:name=".CommerceActivity" />
+
         <activity android:name=".CalendarActivity" />
+
+        <activity android:name=".ReseauActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
