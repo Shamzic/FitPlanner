@@ -51,12 +51,12 @@
             android:id="@+id/parcs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginLeft="20dp"
-            android:onClick="clickParcs"
+            android:layout_weight="1"
             android:background="@color/colorGreen"
-            android:text="Pleine air"
-            android:textSize="10sp"/>
+            android:onClick="clickParcs"
+            android:text="Plein air"
+            android:textSize="10sp" />
         </LinearLayout>
 
 
@@ -84,14 +84,6 @@
         -->
         <!-- ads:adUnitId="ca-app-pub-4810075982521358/2622229532">-->
     </com.google.android.gms.ads.AdView>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="14dp"
-        android:text="ICI PROCHAINEMENT UNE PAGE DE PUB"
-        android:textSize="18sp"/>
 
 
 </LinearLayout>

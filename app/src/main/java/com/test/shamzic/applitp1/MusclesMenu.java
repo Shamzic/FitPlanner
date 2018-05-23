@@ -115,8 +115,8 @@ public class MusclesMenu extends AppCompatActivity
         startActivity(new Intent(this, CalendarActivity.class));
     }
 
-    /*public void OnReseauClicked(View v) {
-        Intent I = new Intent(MusclesMenu.this, ReseauActivity.class);
+    public void OnReseauClicked(View v) {
+        Intent I = new Intent(MusclesMenu.this, NewsActivity.class);
         startActivity(I);
-    }*/
+    }
 }
