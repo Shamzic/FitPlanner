@@ -40,7 +40,6 @@ public class NewsActivity extends AppCompatActivity {
         mRequestQueue = Volley.newRequestQueue(this);
         parseJSON();
     }
-
     private void parseJSON() {
         //String url = "https://newsapi.org/v2/everything?q=sport&sortBy=popularity&apiKey=8a288b43e53d4739bb91efa0c4c61491"; // sport dans le monde; trop general
         String url = "https://newsapi.org/v2/top-headlines?country=fr&category=sport&apiKey=8a288b43e53d4739bb91efa0c4c61491"; // sport en france
