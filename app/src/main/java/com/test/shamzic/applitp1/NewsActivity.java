@@ -41,8 +41,9 @@ public class NewsActivity extends AppCompatActivity {
         parseJSON();
     }
     private void parseJSON() {
+        String url = "https://newsapi.org/v2/everything?domains=eurosport.fr&apiKey=8a288b43e53d4739bb91efa0c4c61491";// eurosport !
         //String url = "https://newsapi.org/v2/everything?q=sport&sortBy=popularity&apiKey=8a288b43e53d4739bb91efa0c4c61491"; // sport dans le monde; trop general
-        String url = "https://newsapi.org/v2/top-headlines?country=fr&category=sport&apiKey=8a288b43e53d4739bb91efa0c4c61491"; // sport en france
+        //String url = "https://newsapi.org/v2/top-headlines?country=fr&category=sport&apiKey=8a288b43e53d4739bb91efa0c4c61491"; // sport en france
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
