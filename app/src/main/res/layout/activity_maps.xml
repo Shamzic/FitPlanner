@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -69,6 +70,20 @@
         android:apiKey="AIzaSyADlRw1YSZ0iRmaVMA_t04UmGNyWvVkySs"
         android:clickable="true"
         tools:context="com.test.shamzic.applitp1.MapsActivity" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="82dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-3940256099942544/6300978111">
+        <!-- En attente du déploiment de l'application on utilise l'ID
+        ci-dessus
+        -->
+        <!-- ads:adUnitId="ca-app-pub-4810075982521358/2622229532">-->
+    </com.google.android.gms.ads.AdView>
 
     <TextView
         android:layout_width="wrap_content"
